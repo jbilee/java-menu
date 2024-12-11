@@ -1,5 +1,7 @@
 package menu.domains.coaches;
 
+import menu.helpers.InputHandler;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,5 +14,9 @@ public class CoachHandler {
             Coach newCoach = new Coach(name);
             this.coaches.add(newCoach);
         });
+    }
+
+    public void initMenus(InputHandler inputHandler) {
+        inputHandler.getCoachMenu(this.coaches);
     }
 }

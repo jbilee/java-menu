@@ -1,5 +1,8 @@
 package menu.domains.coaches;
 
+import menu.helpers.Validator;
+import menu.ui.InputView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +15,10 @@ public class Coach {
         this.name = name;
     }
 
-    public void addMenu(List<String> newMenu) {
+    public void addMenu(InputView inputView, Validator validator) {
+        String input = inputView.readCoachMenu(this.name);
+        validator.checkMenuNames(input);
+        List<String> newMenu = List.of(input.split(","));
         this.menu.addAll(newMenu);
     }
 }

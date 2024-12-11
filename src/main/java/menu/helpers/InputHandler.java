@@ -1,6 +1,9 @@
 package menu.helpers;
 
+import menu.domains.coaches.Coach;
 import menu.ui.InputView;
+
+import java.util.List;
 
 public class InputHandler {
     private final static InputView inputView = new InputView();
@@ -18,5 +21,16 @@ public class InputHandler {
         }
     }
 
-
+    public void getCoachMenu(List<Coach> coaches) {
+        while (true) {
+            try {
+                coaches.forEach(coach -> {
+                    coach.addMenu(inputView, validator);
+                });
+                return;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
 }

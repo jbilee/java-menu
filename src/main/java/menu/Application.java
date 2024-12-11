@@ -14,6 +14,6 @@ public class Application {
         List<String> names = List.of(name.split(","));
         names.forEach(coachHandler::addCoach);
 
-        
+        coachHandler.initMenus(inputHandler);
     }
 }
