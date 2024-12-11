@@ -28,14 +28,15 @@ public class CoachHandler {
 
     public void suggestMenus(Menu menu) {
         String randomCategory = menu.getRandomCategory();
-        if (this.suggestedCategories.get(randomCategory) >= 2) {
+        if (this.suggestedCategories.get(randomCategory) != null && this.suggestedCategories.get(randomCategory) >= 2) {
             do {
                 randomCategory = menu.getRandomCategory();
             } while (this.suggestedCategories.get(randomCategory) >= 2);
         }
         menu.addToFinalCategories(randomCategory);
+        this.suggestedCategories.computeIfPresent(randomCategory, (key, value) -> value + 1);
+        this.suggestedCategories.computeIfAbsent(randomCategory, (key) -> 1);
 
-        menu.addToFinalCategories(randomCategory);
         List<String> menuItems = menu.getMenuItems(randomCategory);
 
         this.coaches.forEach(coach -> {
