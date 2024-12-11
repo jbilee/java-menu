@@ -20,6 +20,10 @@ public class Menu {
         });
     }
 
+    public List<String> getMenuItems(String category) {
+        return allMenus.get(category);
+    }
+
     public String getRandomCategory() {
         return categories.get(Randoms.pickNumberInRange(1, 5));
     }

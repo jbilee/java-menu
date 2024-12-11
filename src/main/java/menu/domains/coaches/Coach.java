@@ -27,6 +27,10 @@ public class Coach {
         this.enteredMenu = true;
     }
 
+    public boolean canEat(String menu) {
+        return !this.menu.contains(menu);
+    }
+
     public boolean isAlreadyRecommended(String menu) {
         return this.recommended.contains(menu);
     }

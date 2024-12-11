@@ -1,5 +1,6 @@
 package menu.domains.coaches;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import menu.domains.menu.Menu;
 import menu.helpers.InputHandler;
 
@@ -29,8 +30,21 @@ public class CoachHandler {
         if (this.suggestedCategories.get(randomCategory) >= 2) {
             do {
                 randomCategory = menu.getRandomCategory();
-            } while(this.suggestedCategories.get(randomCategory) >= 2);
+            } while (this.suggestedCategories.get(randomCategory) >= 2);
         }
         menu.addToFinalCategories(randomCategory);
+
+        menu.addToFinalCategories(randomCategory);
+        List<String> menuItems = menu.getMenuItems(randomCategory);
+
+        this.coaches.forEach(coach -> {
+            String randomMenu = Randoms.shuffle(menuItems).get(0);
+            if (coach.isAlreadyRecommended(randomMenu) || !coach.canEat(randomMenu)) {
+                do {
+                    randomMenu = Randoms.shuffle(menuItems).get(0);
+                } while (coach.isAlreadyRecommended(randomMenu) || !coach.canEat(randomMenu));
+            }
+            coach.addRecommended(randomMenu);
+        });
     }
 }
