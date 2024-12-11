@@ -26,4 +26,12 @@ public class Coach {
         this.menu.addAll(newMenu);
         this.enteredMenu = true;
     }
+
+    public boolean isAlreadyRecommended(String menu) {
+        return this.recommended.contains(menu);
+    }
+
+    public void addRecommended(String menu) {
+        this.recommended.add(menu);
+    }
 }
