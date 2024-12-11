@@ -38,4 +38,8 @@ public class Coach {
     public void addRecommended(String menu) {
         this.recommended.add(menu);
     }
+
+    public String getPrint() {
+        return "[ " + this.name + " | " + String.join(" | ", this.recommended) + " ]";
+    }
 }

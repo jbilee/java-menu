@@ -3,6 +3,7 @@ package menu.domains.coaches;
 import camp.nextstep.edu.missionutils.Randoms;
 import menu.domains.menu.Menu;
 import menu.helpers.InputHandler;
+import menu.ui.OutputView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -46,5 +47,9 @@ public class CoachHandler {
             }
             coach.addRecommended(randomMenu);
         });
+    }
+
+    public void printResults(OutputView outputView) {
+        this.coaches.forEach(outputView::printCoachResults);
     }
 }

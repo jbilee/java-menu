@@ -1,11 +1,13 @@
 package menu.domains.menu;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import menu.ui.OutputView;
 import menu.ui.constants.ErrorMessages;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Menu {
     private final static List<String> categories = List.of("null", "일식", "한식", "중식", "아시안", "양식");
@@ -30,6 +32,11 @@ public class Menu {
 
     public void addToFinalCategories(String category) {
         this.finalCategories.add(category);
+    }
+
+    public void printCategories(OutputView outputView) {
+        String result = "[ 카테고리 " + String.join(" | ", this.finalCategories) + " ]";
+        outputView.printCategories(result);
     }
 }
 
