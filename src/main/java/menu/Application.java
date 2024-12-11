@@ -1,6 +1,7 @@
 package menu;
 
 import menu.domains.coaches.CoachHandler;
+import menu.domains.menu.Menu;
 import menu.helpers.InputHandler;
 
 import java.util.List;
@@ -15,5 +16,8 @@ public class Application {
         names.forEach(coachHandler::addCoach);
 
         coachHandler.initMenus(inputHandler);
+        Menu menu = new Menu();
+
+        coachHandler.suggestMenus(menu);
     }
 }

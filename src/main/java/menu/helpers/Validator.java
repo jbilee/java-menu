@@ -7,7 +7,6 @@ import java.util.List;
 
 public class Validator {
     private final static String DELIMITER = ",";
-    private final static List<String> categories = List.of("null", "일식", "한식", "중식", "아시안", "양식");
 
     public void checkNames(String input) {
         List<String> names = List.of(input.split(DELIMITER));
@@ -27,7 +26,6 @@ public class Validator {
     }
 
     public void checkMenuNames(String input) {
-        Menu menu = new Menu();
         List<String> names = List.of(input.split(DELIMITER));
         int nameCount = names.size();
         if (nameCount == 0) {
@@ -37,6 +35,6 @@ public class Validator {
         if (nameCount != uniqueCount) {
             throw new IllegalArgumentException(ErrorMessages.INVALID.getMessage());
         }
-        names.forEach(menu::isValidMenu);
+        names.forEach(Menu::isValidMenu);
     }
 }
