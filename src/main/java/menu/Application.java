@@ -21,7 +21,9 @@ public class Application {
         coachHandler.initMenus(inputHandler);
         Menu menu = new Menu();
 
-        coachHandler.suggestMenus(menu);
+        for (int i = 0; i < 5; i++) {
+            coachHandler.suggestMenus(menu);
+        }
 
         outputView.printResultHeader();
         menu.printCategories(outputView);
