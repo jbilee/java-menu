@@ -14,8 +14,8 @@ public class Menu {
     private final List<String> finalCategories = new ArrayList<>();
 
     public static void isValidMenu(String name) {
-        String allMenusString = allMenus.values().toString();
-        if (!allMenusString.contains(name)) {
+        MenuItems result = MenuItems.findByItem(name);
+        if (result.getCategory().equals("없음")) {
             throw new IllegalArgumentException(ErrorMessages.INVALID.getMessage());
         }
     }
@@ -38,8 +38,3 @@ public class Menu {
         outputView.printCategories(result);
     }
 }
-
-
-
-
-
